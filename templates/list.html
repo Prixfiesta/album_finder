@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block body_block %}
+
+    <h1 class="display-2 text-center">Here are the songs</h1>
+<br>
+<div class="container" overflow:scroll>
+  <form class="" action="index.html" method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <div class="text-center">
+         <input type="submit" class="btn btn-dark btn-lg" value="Search">
+     </div>
+  </form>
+  {% for songname in result %}
+      <div class="card">
+        <div class="card-body">
+          <p >{{songname}} </p>
+        </div>
+
+      </div>
+      <br>
+  {% endfor %}
+</div>
+
+
+
+{% endblock %}
